@@ -1,0 +1,22 @@
+void print_F(int n)
+{
+	int i;
+	for (i = 1; i <= n; i++)
+	{
+		int j;
+		for (j = 1; j <= i; j++)
+		{
+			printf("%2d*%2d=%-3d  ", i, j, i*j);
+		}
+		printf("\n");
+	}
+}
+
+int main()
+{
+	int m;
+	printf("请输入需要打印的乘法表的行数：");
+	scanf("%d", &m);
+	print_F(m);
+	return 0;
+}
