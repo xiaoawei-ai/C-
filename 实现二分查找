@@ -1,0 +1,40 @@
+//a是一个指针 变量
+int binar_search(int a[],int x, int y)
+{
+	int left = 0;
+	int right = y - 1;
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (x > a[mid])
+		{
+			left = mid + 1;
+		}
+		else if (x < a[mid])
+		{
+			right = mid - 1;
+		}
+		else
+			return mid;
+	}
+	return -1;
+}
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int k;
+	printf("请输入需要查找的值：");
+	scanf("%d", &k);
+	int m = binar_search(arr, k, sz);//只传入数组首元素地址
+
+	if (m == -1)
+	{
+		printf("在数组中找不到该数。\n");
+	}
+	else
+	{
+		printf("该数在数组中的下标为：%d\n", m);
+	}
+	return 0;
+}
