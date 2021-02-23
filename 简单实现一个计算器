@@ -1,0 +1,59 @@
+函数指针数组，实现计算器
+void menue()
+{
+	printf("**********************************************************\n");
+	printf("***  1.加法    2.减法     3.乘法     4.除法    0.退出  ***\n");
+	printf("**********************************************************\n");
+}
+
+int Add(int x, int y)
+{
+	return x + y;
+}
+
+int Sub(int x, int y)
+{
+	return x - y;
+}
+
+int Mul(int x, int y)
+{
+	return x * y;
+}
+
+int Div(int x, int y)
+{
+	return x / y;
+}
+
+ void Calc(int(*pf)(int, int))
+{
+	 int x, y;
+	 printf("请输入两个操作数：");
+	 scanf("%d%d", &x, &y);
+	 printf("%d\n", pf(x, y));
+}
+
+int main()
+{
+	int x, y, input;
+	int(*pfArr[])(int, int) = { 0,Add,Sub,Mul,Div };//函数指针数组
+	do
+	{
+		menue();
+		printf("请选择：");
+		scanf("%d", &input);
+		if (input >= 1 && input <= 4)
+		{
+			printf("请输入两个操作数：");
+			scanf("%d%d", &x, &y);
+			int ret = pfArr[input](x, y);
+			printf("%d\n", ret);
+		}
+		else if (input == 0)
+			printf("退出\n");
+		else
+			printf("选择错误\n");
+	} while (input);
+	return 0;
+}
