@@ -1,0 +1,26 @@
+//实现字符串追加，即strcat
+
+char* my_strcat(char* dest, const char* src)
+{
+	assert(dest && src);
+	char* ret = dest;
+	//找到目的地址的'\0'
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	//追加
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+
+int main()
+{
+	char arr1[100] = "hello ";
+	char arr2[] = "bit";
+	printf("%s\n", my_strcat(arr1, arr2));
+	return 0;
+}
